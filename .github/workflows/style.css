@@ -1,13 +1,15 @@
+/* General styles */
 body {
   background-color: #f2f2f2;
   font-family: Arial, sans-serif;
   color: #333;
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 input, select {
   border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
   width: 100%;
@@ -19,18 +21,48 @@ label {
   margin-right: 10px;
 }
 
-button[type="submit"] {
+button[type="submit"], button[type="button"] {
   background-color: #333;
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.input-section {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+button[type="submit"]:hover, button[type="button"]:hover {
+  background-color: #666;
+}
+
+/* Tracking interface styles */
+#tracking-interface {
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
-  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Admin portal styles */
+#admin-portal {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* Trust and policy styles */
+#trust-policy {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Animation styles */
+.fadeIn {
+  opacity: 1 !important;
 }
