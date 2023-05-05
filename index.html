@@ -2,19 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Shipment Tracking Interface</title>
+    <title>Yagi Tracking</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div id="tracking-interface">
-      <h1>Track Your Shipment</h1>
+    <!-- Enter Screen -->
+    <div id="enter-screen">
+      <h1>Welcome to Yagi Tracking</h1>
       <form>
         <label>Tracking Number:</label>
         <input type="text" id="tracking-number">
         <br><br>
-        <label>Admin Password:</label>
-        <input type="password" id="admin-password">
-        <button type="button" onclick="showAdminPortal()">Show Admin Portal</button>
+        <button type="button" onclick="showTrackingSite()">Enter Tracking Site</button>
+      </form>
+      <br><br>
+      <div id="enter-screen-media">
+        <!-- Enter Screen Media (Image/Video) will be displayed here -->
+      </div>
+    </div>
+    
+    <!-- Tracking Site -->
+    <div id="tracking-site" style="display: none;">
+      <h1>Track Your Shipment</h1>
+      <form>
+        <label>Tracking Number:</label>
+        <input type="text" id="tracking-number">
         <br><br>
         <button type="submit">Track Shipment</button>
       </form>
@@ -23,13 +35,13 @@
         <!-- Shipment information will be displayed here -->
       </div>
     </div>
+    
+    <!-- Admin Portal -->
     <div id="admin-portal" style="display: none;">
       <h1>Admin Portal</h1>
       <!-- Add form elements for uploading and managing shipment information -->
     </div>
-    <div id="trust-policy">
-      <p>We value the accuracy of the information displayed on this site. For more information, please see our <a href="#">Trust and Policy</a>.</p>
-    </div>
+    
     <script src="app.js"></script>
   </body>
 </html>
