@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Admin Portal</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Admin Portal</h1>
+      <form id="tracking-form">
+        <input id="tracking-number" type="text" placeholder="Enter tracking number">
+        <button type="submit">Add</button>
+      </form>
+      <table id="tracking-table">
+        <thead>
+          <tr>
+            <th>Tracking Number</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tracking-table-body"></tbody>
+      </table>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
