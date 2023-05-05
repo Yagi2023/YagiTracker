@@ -1,56 +1,39 @@
-// Initialize Firebase
-var firebaseConfig = {
-  // Add your Firebase config here
-};
+// Function to show the admin portal
+function showAdminPortal() {
+  // Get the tracking number and admin password inputs
+  const trackingNumberInput = document.getElementById("tracking-number");
+  const adminPasswordInput = document.getElementById("admin-password");
 
-firebase.initializeApp(firebaseConfig);
-
-var database = firebase.database();
-
-const trackingForm = document.getElementById("tracking-form");
-const trackingNumberInput = document.getElementById("tracking-number");
-const trackingTableBody = document.getElementById("tracking-table-body");
-
-trackingForm.addEventListener("submit", e => {
-  e.preventDefault();
-
+  // Get the tracking number and admin password values
   const trackingNumber = trackingNumberInput.value;
+  const adminPassword = adminPasswordInput.value;
 
-  database.ref("tracking_numbers").push({
-    tracking_number: trackingNumber,
-    status: "pending"
-  });
+  // Check if the admin password is correct
+  if (adminPassword === "yagi3212!") {
+    // Show the admin portal
+    document.getElementById("admin-portal").style.display = "block";
+  } else {
+    // Hide the admin portal
+    document.getElementById("admin-portal").style.display = "none";
 
-  trackingNumberInput.value = "";
-});
+    // Get the shipment information from Shippo's API
+    // Replace "shippo_live_3ba0f351f5fd23633a365c872586f52f42e103b8" with your own Shippo API key
+    const apiKey = "shippo_live_3ba0f351f5fd23633a365c872586f52f42e103b8";
+    const url = `https://api.goshippo.com/tracks/${trackingNumber}/`;
 
-database.ref("tracking_numbers").on("value", snapshot => {
-  trackingTableBody.innerHTML = "";
-
-  snapshot.forEach(childSnapshot => {
-    const trackingNumber = childSnapshot.val().tracking_number;
-    const status = childSnapshot.val().status;
-    const key = childSnapshot.key;
-
-    const row = document.createElement("tr");
-
-    const trackingNumberCell = document.createElement("td");
-    trackingNumberCell.innerHTML = trackingNumber;
-    row.appendChild(trackingNumberCell);
-
-    const statusCell = document.createElement("td");
-    statusCell.innerHTML = status;
-    row.appendChild(statusCell);
-
-    const deleteCell = document.createElement("td");
-    const deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "Delete";
-    deleteButton.addEventListener("click", () => {
-      database.ref("tracking_numbers").child(key).remove();
-    });
-    deleteCell.appendChild(deleteButton);
-    row.appendChild(deleteCell);
-
-    trackingTableBody.appendChild(row);
-  });
-});
+    fetch(url, {
+      headers: {
+        "Authorization": `ShippoToken ${apiKey}`
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Display the shipment information
+        const shipmentInfo = document.getElementById("shipment-info");
+        shipmentInfo.innerHTML = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+}
