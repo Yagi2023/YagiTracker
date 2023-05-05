@@ -1,3 +1,4 @@
+/* General styles */
 body {
   background-color: #f2f2f2;
   font-family: Arial, sans-serif;
@@ -6,40 +7,62 @@ body {
   padding: 0;
 }
 
-#tracking-interface {
-  max-width: 500px;
-  padding: 20px;
-  margin: 40px auto;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+input, select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 label {
   font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-button[type="submit"] {
-  background: linear-gradient(45deg, #444, #666);
+button[type="submit"], button[type="button"] {
+  background-color: #333;
   color: #fff;
   border: none;
-  border-radius: 30px;
-  padding: 10px 40px;
-  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-  background: linear-gradient(45deg, #666, #444);
+button[type="submit"]:hover, button[type="button"]:hover {
+  background-color: #666;
+}
+
+/* Tracking interface styles */
+#tracking-interface {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Admin portal styles */
+#admin-portal {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* Trust and policy styles */
+#trust-policy {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Animation styles */
+.fadeIn {
+  opacity: 1 !important;
 }
