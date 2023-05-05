@@ -1,38 +1,37 @@
-/* CSS for the customer sign-in screen and shipment tracking interface */
-#sign-in-screen {
-  text-align: center;
+File: style.css
+
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-#sign-in-form {
-  display: inline-block;
-  text-align: left;
-}
-
-#sign-in-form label {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-#sign-in-form input[type="email"],
-#sign-in-form input[type="password"] {
+input, select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
   width: 100%;
-  padding: 0.5em;
-  margin-bottom: 1em;
+  box-sizing: border-box;
 }
 
-#sign-in-form button[type="submit"] {
-  width: 100%;
-  padding: 0.5em;
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
   background-color: #333;
   color: #fff;
   border: none;
-  border-radius: 0.25em;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
-#tracking-interface {
+#trust-policy {
+  color: #999;
+  font-size: 12px;
   text-align: center;
+  margin-top: 20px;
 }
-
-/* Add additional CSS for the shipment tracking interface form elements */
-...
