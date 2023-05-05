@@ -1,25 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yagi Pleasures Shipment Tracker</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yagi Pleasures Order Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input, select {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #admin-portal {
+            display: none;
+        }
+
+        #shipment-info {
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div id="tracking-interface">
-    <h1>Track Your Yagi Pleasures Order</h1>
-    <form>
-      <label>Tracking Number:</label>
-      <input type="text" id="tracking-number">
-      <br><br>
-      <button type="submit">Track Shipment</button>
-    </form>
-    <br><br>
-    <div id="shipment-info">
-      <!-- Shipment information will be displayed here -->
+    <div class="container">
+        <h1>Yagi Pleasures Order Tracker</h1>
+        <form id="tracking-form">
+            <label for="tracking-number">Tracking Number:</label>
+            <input type="text" id="tracking-number">
+            <br><br>
+            <label for="admin-password">Admin Password:</label>
+            <input type="password" id="admin-password">
+            <br><br>
+            <button type="button" onclick="showAdminPortal()">Show Admin Portal</button>
+            <br><br>
+            <button type="submit">Track Shipment</button>
+        </form>
+        <div id="shipment-info">
+            <!-- Shipment information will be displayed here -->
+        </div>
+        <div id="admin-portal" class="hidden">
+            <h2>Admin Portal</h2>
+            <!-- Add form elements for manual shipment information entry -->
+            <form id="shipment-form">
+                <label for="shipment-id">Shipment ID:</label>
+                <input type="text" id="shipment-id">
+                <br><br>
+                <label for="shipment-status">Shipment Status:</label>
+                <input type="text" id="shipment-status">
+                <br><br>
+                <button type="submit">Add Shipment</button>
+            </form>
+        </div>
     </div>
-  </div>
-  <script src="app.js"></script>
-</body>
-</html>
+    <script>
+        document.getElementById("tracking-form").addEventListener("submit", function (event) {
+            event.preventDefault();
