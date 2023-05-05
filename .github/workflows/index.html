@@ -1,37 +1,29 @@
-index.html
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipment Tracking Interface</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <div id="tracking-interface">
-      <h1>Track Your Shipment</h1>
-      <form>
+      <h1 style="text-align: center;">Track Your Shipment</h1>
+      <div class="input-section">
         <label>Tracking Number:</label>
         <input type="text" id="tracking-number">
-        <br><br>
-        <label>Admin Password:</label>
-        <input type="password" id="admin-password">
-        <button type="button" onclick="showAdminPortal()"> Show Admin Portal</button>
-        <br><br>
-        <button type="submit">Track Shipment</button>
-      </form>
-      <br><br>
-      <div id="shipment-info">
-        <!-- Shipment information will be displayed here -->
       </div>
+      <br><br>
+      <button id="track-shipment-button" type="submit">Track Shipment</button>
     </div>
-    <div id="admin-portal" style="display: none;">
-      <h1>Admin Portal</h1>
-      <!-- Add form elements for uploading and managing shipment information -->
+    <div id="shipment-info" style="text-align: center;">
+      <!-- Shipment information will be displayed here -->
     </div>
     <div id="trust-policy">
-      <p>We value the accuracy of the information displayed on this site. For more information, please see our <a href="#">Trust and Policy</a>.</p>
+      <p style="text-align: center; color: #999; font-size: 12px; margin-top: 20px;">
+        We value the accuracy of the information displayed on this site. For more information, please see our <a href="#">Trust and Policy</a>.
+      </p>
     </div>
-    <script src="js/app.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
